@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: easybuy-product-service
+  profiles:
+    active: dev
+
