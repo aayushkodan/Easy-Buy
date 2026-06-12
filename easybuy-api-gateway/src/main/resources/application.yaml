@@ -5,6 +5,12 @@ spring:
   application:
     name: easybuy-api-gateway
 
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+
   cloud:
     gateway:
       server:
@@ -26,12 +32,23 @@ management:
       access: read_only
 
 
+
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
   instance:
     prefer-ip-address: true
+
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 3
+      permitted-number-of-calls-in-half-open-state: 2
+      waitDurationInOpenState: 10000
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
 
 logging:
   level:

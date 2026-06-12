@@ -12,6 +12,8 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -27,9 +29,12 @@ import java.util.UUID;
 @RequestMapping("/api/v1/products")
 @RequiredArgsConstructor
 @Validated
+@RefreshScope
 public class ProductController {
 
     private final ProductService productService;
+    @Value( "${test}")
+    private String test;
 
     @GetMapping
     public ResponseEntity<PagedResponse<ProductResponse>> getAllProducts(
@@ -40,9 +45,14 @@ public class ProductController {
         return ResponseEntity.ok(productService.getAllProducts(page, size));
     }
 
+    @GetMapping("/test")
+    public String test() {
+        return test;
+    }
+
     @GetMapping("/{productId}")
     public ResponseEntity<ProductResponse> getProductById(@PathVariable UUID productId) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(productService.getProductById(productId));
+        return ResponseEntity.ok(productService.getProductById(productId));
     }
 
     @GetMapping("/categories/{categoryId}")
@@ -56,7 +66,7 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity<ProductResponse> createProduct(@Valid @RequestBody CreateProductRequest request) {
-        return ResponseEntity.ok(productService.createProduct(request));
+        return ResponseEntity.status(HttpStatus.CREATED).body(productService.createProduct(request));
     }
 
     @PutMapping("/{productId}")

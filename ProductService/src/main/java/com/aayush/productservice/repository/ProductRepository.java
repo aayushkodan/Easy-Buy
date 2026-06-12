@@ -1,9 +1,6 @@
 package com.aayush.productservice.repository;
 
-import aj.org.objectweb.asm.commons.Remapper;
-import com.aayush.productservice.dto.response.ProductResponse;
 import com.aayush.productservice.entity.Product;
-import org.jspecify.annotations.NonNull;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

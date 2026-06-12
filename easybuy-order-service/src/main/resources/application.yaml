@@ -1,6 +1,10 @@
 spring:
   application:
     name: easybuy-order-service
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
 server:
   port: 8081
 
@@ -10,6 +14,7 @@ eureka:
         defaultZone: http://localhost:8761/eureka/
   instance:
     prefer-ip-address: true
+
 
 
 logging:
