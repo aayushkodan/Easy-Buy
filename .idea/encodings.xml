@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/easybuy-api-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/easybuy-config-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/easybuy-discovery-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/easybuy-inventory-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/easybuy-order-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/easybuy-user-service/src/main/java" charset="UTF-8" />
   </component>
