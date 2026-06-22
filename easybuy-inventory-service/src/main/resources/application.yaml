@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: easybuy-inventory-service
+  profiles:
+    active: dev
+
+  config:
+    import: configserver:http://localhost:8888
