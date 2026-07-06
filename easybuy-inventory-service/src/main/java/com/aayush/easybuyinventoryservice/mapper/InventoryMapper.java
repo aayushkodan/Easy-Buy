@@ -4,21 +4,22 @@ import com.aayush.easybuyinventoryservice.dto.request.CreateInventoryRequest;
 import com.aayush.easybuyinventoryservice.dto.request.UpdateInventoryRequest;
 import com.aayush.easybuyinventoryservice.dto.response.InventoryResponse;
 import com.aayush.easybuyinventoryservice.entity.Inventory;
-import org.mapstruct.BeanMapping;
-import org.mapstruct.Mapper;
-import org.mapstruct.MappingTarget;
-import org.mapstruct.NullValuePropertyMappingStrategy;
+import org.mapstruct.*;
 
 @Mapper(componentModel = "spring")
 public interface InventoryMapper {
 
-    InventoryResponse toResponse(
-            Inventory inventory
-    );
+    @Mapping(
+            target = "totalQuantity",
+            expression = "java(inventory.getTotalQuantity())"
+    )
+    @Mapping(
+            target = "lowStock",
+            expression = "java(inventory.isLowStock())"
+    )
+    InventoryResponse toResponse(Inventory inventory);
 
-    Inventory toEntity(
-            CreateInventoryRequest request
-    );
+    Inventory toEntity(CreateInventoryRequest request);
 
     @BeanMapping(
             nullValuePropertyMappingStrategy =

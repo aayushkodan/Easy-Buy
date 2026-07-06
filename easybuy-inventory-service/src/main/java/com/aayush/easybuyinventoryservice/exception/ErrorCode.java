@@ -66,6 +66,18 @@ public enum ErrorCode {
             HttpStatus.BAD_REQUEST
     ),
 
+    INVALID_SKU(
+            "INV_011",
+            "Invalid SKU",
+            HttpStatus.BAD_REQUEST
+    ),
+
+    LOW_STOCK_THRESHOLD_REACHED(
+            "INV_012",
+            "Low stock threshold reached",
+            HttpStatus.BAD_REQUEST
+    ),
+
     INVALID_REQUEST(
             "GEN_001",
             "Invalid request",

@@ -1,4 +1,4 @@
-package com.aayush.easybuyinventoryservice.dto.response;
+package com.aayush.easybuycartorderservice.dto.response;
 
 import java.math.BigDecimal;
 import java.util.UUID;
