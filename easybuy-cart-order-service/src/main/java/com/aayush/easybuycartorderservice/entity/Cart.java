@@ -30,6 +30,7 @@ import org.hibernate.annotations.UuidGenerator;
 public class Cart extends BaseEntity{
 
     @Id
+    @GeneratedValue
     @UuidGenerator
     private UUID id;
 

@@ -6,9 +6,9 @@ import org.springframework.http.HttpStatus;
 @Getter
 public enum ErrorCode {
 
-    // =========================
+    // ==========================================================
     // CART ERRORS
-    // =========================
+    // ==========================================================
 
     CART_NOT_FOUND(
             "CRT_001",
@@ -46,9 +46,21 @@ public enum ErrorCode {
             HttpStatus.BAD_REQUEST
     ),
 
-    // =========================
+    INVALID_QUANTITY(
+            "CRT_007",
+            "Invalid quantity",
+            HttpStatus.BAD_REQUEST
+    ),
+
+    CHECKOUT_FAILED(
+            "CRT_008",
+            "Checkout failed",
+            HttpStatus.BAD_REQUEST
+    ),
+
+    // ==========================================================
     // ORDER ERRORS
-    // =========================
+    // ==========================================================
 
     ORDER_NOT_FOUND(
             "ORD_001",
@@ -58,13 +70,13 @@ public enum ErrorCode {
 
     ORDER_ALREADY_CANCELLED(
             "ORD_002",
-            "Order is already cancelled",
+            "Order already cancelled",
             HttpStatus.BAD_REQUEST
     ),
 
     ORDER_CANNOT_BE_CANCELLED(
             "ORD_003",
-            "Order cannot be cancelled in its current state",
+            "Order cannot be cancelled",
             HttpStatus.BAD_REQUEST
     ),
 
@@ -76,13 +88,25 @@ public enum ErrorCode {
 
     ORDER_CREATION_FAILED(
             "ORD_005",
-            "Failed to create order",
+            "Order creation failed",
             HttpStatus.BAD_REQUEST
     ),
 
-    // =========================
+    ORDER_ALREADY_PAID(
+            "ORD_006",
+            "Order already paid",
+            HttpStatus.BAD_REQUEST
+    ),
+
+    ORDER_ALREADY_DELIVERED(
+            "ORD_007",
+            "Order already delivered",
+            HttpStatus.BAD_REQUEST
+    ),
+
+    // ==========================================================
     // PRODUCT ERRORS
-    // =========================
+    // ==========================================================
 
     PRODUCT_NOT_FOUND(
             "PRD_001",
@@ -96,9 +120,15 @@ public enum ErrorCode {
             HttpStatus.BAD_REQUEST
     ),
 
-    // =========================
+    PRODUCT_SERVICE_UNAVAILABLE(
+            "PRD_003",
+            "Product service unavailable",
+            HttpStatus.SERVICE_UNAVAILABLE
+    ),
+
+    // ==========================================================
     // INVENTORY ERRORS
-    // =========================
+    // ==========================================================
 
     INVENTORY_NOT_FOUND(
             "INV_001",
@@ -108,25 +138,31 @@ public enum ErrorCode {
 
     INSUFFICIENT_STOCK(
             "INV_002",
-            "Insufficient stock available",
+            "Insufficient stock",
             HttpStatus.BAD_REQUEST
     ),
 
     STOCK_RESERVATION_FAILED(
             "INV_003",
-            "Failed to reserve stock",
+            "Stock reservation failed",
             HttpStatus.BAD_REQUEST
     ),
 
     STOCK_RELEASE_FAILED(
             "INV_004",
-            "Failed to release stock",
+            "Stock release failed",
             HttpStatus.BAD_REQUEST
     ),
 
-    // =========================
+    INVENTORY_SERVICE_UNAVAILABLE(
+            "INV_005",
+            "Inventory service unavailable",
+            HttpStatus.SERVICE_UNAVAILABLE
+    ),
+
+    // ==========================================================
     // USER ERRORS
-    // =========================
+    // ==========================================================
 
     USER_NOT_FOUND(
             "USR_001",
@@ -134,9 +170,9 @@ public enum ErrorCode {
             HttpStatus.NOT_FOUND
     ),
 
-    // =========================
+    // ==========================================================
     // PAYMENT ERRORS
-    // =========================
+    // ==========================================================
 
     PAYMENT_FAILED(
             "PAY_001",
@@ -146,7 +182,7 @@ public enum ErrorCode {
 
     PAYMENT_PENDING(
             "PAY_002",
-            "Payment is pending",
+            "Payment pending",
             HttpStatus.BAD_REQUEST
     ),
 
@@ -156,9 +192,15 @@ public enum ErrorCode {
             HttpStatus.BAD_REQUEST
     ),
 
-    // =========================
-    // GENERIC ERRORS
-    // =========================
+    PAYMENT_SERVICE_UNAVAILABLE(
+            "PAY_004",
+            "Payment service unavailable",
+            HttpStatus.SERVICE_UNAVAILABLE
+    ),
+
+    // ==========================================================
+    // GENERIC
+    // ==========================================================
 
     INVALID_REQUEST(
             "GEN_001",

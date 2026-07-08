@@ -25,6 +25,7 @@ import org.hibernate.annotations.UuidGenerator;
 public class OrderItem {
 
     @Id
+    @GeneratedValue
     @UuidGenerator
     private UUID id;
 

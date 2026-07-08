@@ -32,13 +32,14 @@ public class Order extends BaseEntity{
 
     @Id
     @UuidGenerator
+    @GeneratedValue
     private UUID id;
 
     @Column(nullable = false, unique = true, length = 36)
     private String orderNumber;
 
     @Column(nullable = false, length = 120)
-    private String userId;
+    private UUID userId;
 
     //new
     @Column(nullable = false, length = 120)

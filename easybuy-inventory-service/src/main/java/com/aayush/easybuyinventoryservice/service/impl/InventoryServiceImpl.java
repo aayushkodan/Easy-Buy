@@ -39,7 +39,7 @@ public class InventoryServiceImpl implements InventoryService {
 
         try {
             productClient.getProductById(request.productId());
-        } catch (Exception ex) {
+        } catch (Exception e) {
 
             log.warn(
                     "Product validation failed for productId={}",
@@ -69,6 +69,8 @@ public class InventoryServiceImpl implements InventoryService {
         }
 
         Inventory inventory = inventoryMapper.toEntity(request);
+
+        inventory.setActive(true);
 
         Inventory saved = inventoryRepository.save(inventory);
 

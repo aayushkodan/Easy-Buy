@@ -27,6 +27,7 @@ import org.hibernate.annotations.UuidGenerator;
 public class CartItem {
 
     @Id
+    @GeneratedValue
     @UuidGenerator
     private UUID id;
 
