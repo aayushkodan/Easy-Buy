@@ -1,3 +1,8 @@
 spring:
   application:
     name: easybuy-cart-order-service
+  profiles:
+    active: dev
+
+  config:
+    import: configserver:http://localhost:8888

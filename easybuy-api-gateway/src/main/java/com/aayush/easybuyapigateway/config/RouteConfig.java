@@ -73,6 +73,34 @@ public class RouteConfig {
                                 )
                                 .uri("lb://EASYBUY-INVENTORY-SERVICE")
                 )
+                .route("cart-service", route ->
+                        route.path("/carts/**")
+                                .filters(filter ->
+                                        filter.rewritePath("/carts/?(?<segment>.*)", "/api/v1/carts/${segment}")
+                                                .requestRateLimiter(c -> c.setRateLimiter(redisRateLimiter())
+                                                        .setKeyResolver(keyResolver())
+                                                )
+                                                .retry(retryConfig ->
+                                                        retryConfig.setRetries(3)
+                                                                .setBackoff(Duration.ofMillis(1000), Duration.ofMillis(10000), 2, true)
+                                                )
+                                )
+                                .uri("lb://EASYBUY-INVENTORY-SERVICE")
+                )
+                .route("order-service", route ->
+                        route.path("/orders/**")
+                                .filters(filter ->
+                                        filter.rewritePath("/orders/?(?<segment>.*)", "/api/v1/orders/${segment}")
+                                                .requestRateLimiter(c -> c.setRateLimiter(redisRateLimiter())
+                                                        .setKeyResolver(keyResolver())
+                                                )
+                                                .retry(retryConfig ->
+                                                        retryConfig.setRetries(3)
+                                                                .setBackoff(Duration.ofMillis(1000), Duration.ofMillis(10000), 2, true)
+                                                )
+                                )
+                                .uri("lb://EASYBUY-INVENTORY-SERVICE")
+                )
                 .build();
     }
 

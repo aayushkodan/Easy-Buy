@@ -13,6 +13,7 @@
         <option value="$PROJECT_DIR$/easybuy-inventory-service/pom.xml" />
         <option value="$PROJECT_DIR$/easybuy-order-service/easybuy-cart-order-service/pom.xml" />
         <option value="$PROJECT_DIR$/easybuy-cart-order-service/pom.xml" />
+        <option value="$PROJECT_DIR$/easybuy-common/pom.xml" />
       </list>
     </option>
   </component>
